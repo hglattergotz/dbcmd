@@ -7,7 +7,7 @@ Operations include:
  * Dump a database to a dump file
  * Load a table from a dump file
 
-[![Build Status](https://travis-ci.org/hglattergotz/dbcmd.png)](https://travis-ci.org/hglattergotz/dbcmd)
+[![Build Status](https://travis-ci.org/hglattergotz/dbcmd.svg)](https://travis-ci.org/hglattergotz/dbcmd)
 
 ## Installation
 
