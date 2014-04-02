@@ -1,0 +1,23 @@
+{
+    "name": "hgg/dbcmd",
+    "type": "library",
+    "description": "Wrappter to build and execute management commands against a DB",
+    "keywords": [ "backup", "mysql", "dump" ],
+    "homepage": "http://github.com/hglattergotz/dbcmd",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Henning Glatter-Götz",
+            "email": "henning@glatter-gotz.com",
+            "homepage": "http://glatter-gotz.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/process": ">=2.1.0"
+    },
+    "autoload": {
+        "psr-0": { "HGG\\DbCmd\\": "src/" }
+    },
+    "minimum-stability": "dev"
+}
