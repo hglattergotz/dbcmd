@@ -22,6 +22,52 @@ use HGG\DbCmd\CmdBuilder\CmdBuilder;
 class MySql implements CmdBuilder
 {
     /**
+     * Creates a database create command
+     *
+     * @param mixed $username
+     * @param mixed $password
+     * @param mixed $host
+     * @param mixed $database
+     *
+     * @access public
+     * @return void
+     */
+    public function createDatabase($username, $password, $host, $database)
+    {
+        $components = array('mysql');
+
+        $components[] = '-u '.escapeshellarg($username);
+        $components[] = '-p'.escapeshellarg($password);
+        $components[] = '-h '.escapeshellarg($host);
+        $components[] = '-e '.escapeshellarg('CREATE DATABASE '.$database);
+
+        return implode(' ', $components);
+    }
+
+    /**
+     * Creates a database drop command
+     *
+     * @param mixed $username
+     * @param mixed $password
+     * @param mixed $host
+     * @param mixed $database
+     *
+     * @access public
+     * @return void
+     */
+    public function dropDatabase($username, $password, $host, $database)
+    {
+        $components = array('mysql');
+
+        $components[] = '-u '.escapeshellarg($username);
+        $components[] = '-p'.escapeshellarg($password);
+        $components[] = '-h '.escapeshellarg($host);
+        $components[] = '-e '.escapeshellarg('DROP DATABASE IF EXISTS '.$database);
+
+        return implode(' ', $components);
+    }
+
+    /**
      * Creates a MySQL dump command
      *
      * @param string $username
@@ -31,6 +77,7 @@ class MySql implements CmdBuilder
      * @param array $tables
      * @param string $backupFile
      * @param array $options
+     *
      * @access protected
      * @return void
      */
@@ -58,6 +105,7 @@ class MySql implements CmdBuilder
      * @param mixed $database
      * @param mixed $backupFile
      * @param array $options
+     *
      * @access public
      * @return void
      */

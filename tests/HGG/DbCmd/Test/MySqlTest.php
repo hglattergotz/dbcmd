@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  * This file is part of the HGG package.
  *
  * (c) 2013 Henning Glatter-Götz <henning@glatter-gotz.com>
@@ -20,6 +20,32 @@ class MySqlTest extends \PHPUnit_Framework_TestCase
 
     protected function tearDown()
     {}
+
+    public function testMySqlCreate()
+    {
+        $username = 'myuser';
+        $password = "mypass";
+        $host     = 'localhost';
+        $database = 'mydb';
+
+        $expected = "mysql -u 'myuser' -p'mypass' -h 'localhost' -e 'CREATE DATABASE mydb'";
+        $cmdBld = new MySql();
+        $cmd = $cmdBld->createDatabase($username, $password, $host, $database);
+        $this->assertEquals($expected, $cmd);
+    }
+
+    public function testMySqlDrop()
+    {
+        $username = 'myuser';
+        $password = "mypass";
+        $host     = 'localhost';
+        $database = 'mydb';
+
+        $expected = "mysql -u 'myuser' -p'mypass' -h 'localhost' -e 'DROP DATABASE IF EXISTS mydb'";
+        $cmdBld = new MySql();
+        $cmd = $cmdBld->dropDatabase($username, $password, $host, $database);
+        $this->assertEquals($expected, $cmd);
+    }
 
     public function testMySqlTables()
     {

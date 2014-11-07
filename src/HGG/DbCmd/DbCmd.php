@@ -14,7 +14,7 @@ namespace HGG\DbCmd;
 use Symfony\Component\Process\Process;
 
 /**
- * DbCmd
+ * Run commands agains a database on the command line (using Symfony Process)
  *
  * @author Henning Glatter-Götz <henning@glatter-gotz.com>
  */
@@ -49,6 +49,46 @@ class DbCmd
     {
         $this->cmdBuilder = $cmdBuilder;
         $this->timeout    = $timeout;
+    }
+
+    /**
+     * Create a database on a given host, this will require appropriate permissions.
+     *
+     * @param string $username
+     * @param string $password
+     * @param string $host
+     * @param string $database
+     * @param mixed  $output
+     *
+     * @access public
+     * @throws \Exception
+     * @return Boolean
+     */
+    public function createDatabase($username, $password, $host, $database, &$output)
+    {
+        $cmd = $this->cmdBuilder->createDatabase($username, $password, $host, $database);
+
+        return $this->run($cmd, $output);
+    }
+
+    /**
+     * Drop a database on a given host, this will require appropriate permissions.
+     *
+     * @param string $username
+     * @param string $password
+     * @param string $host
+     * @param string $database
+     * @param mixed  $output
+     *
+     * @access public
+     * @throws \Exception
+     * @return Boolean
+     */
+    public function dropDatabase($username, $password, $host, $database, &$output)
+    {
+        $cmd = $this->cmdBuilder->dropDatabase($username, $password, $host, $database);
+
+        return $this->run($cmd, $output);
     }
 
     /**
@@ -142,3 +182,4 @@ class DbCmd
         return true;
     }
 }
+

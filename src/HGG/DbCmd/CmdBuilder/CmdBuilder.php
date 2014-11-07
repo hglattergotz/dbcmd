@@ -14,6 +14,32 @@ namespace HGG\DbCmd\CmdBuilder;
 interface CmdBuilder
 {
     /**
+     * Creates a database create command
+     *
+     * @param mixed $username
+     * @param mixed $password
+     * @param mixed $host
+     * @param mixed $database
+     *
+     * @access public
+     * @return void
+     */
+    public function createDatabase($username, $password, $host, $database);
+
+    /**
+     * Creates a database drop command
+     *
+     * @param mixed $username
+     * @param mixed $password
+     * @param mixed $host
+     * @param mixed $database
+     *
+     * @access public
+     * @return void
+     */
+    public function dropDatabase($username, $password, $host, $database);
+
+    /**
      * Creates a dump command
      *
      * @param string $username
@@ -23,6 +49,7 @@ interface CmdBuilder
      * @param array $tables
      * @param string $backupFile
      * @param array $options
+     *
      * @access public
      * @return string
      */
@@ -38,6 +65,7 @@ interface CmdBuilder
      * @param array $tables
      * @param mixed $backupFile
      * @param array $options
+     *
      * @access public
      * @return string
      */
