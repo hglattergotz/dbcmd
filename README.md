@@ -1,7 +1,9 @@
 Generic API for running console commands against a DB (previously hgg/dbbackup)
 from within a PHP application.
 
-Warning: The commands are constructed containing the password in order to run non-interactive. This can be considered to be insecure.
+[![Build Status](https://travis-ci.org/hglattergotz/dbcmd.svg)](https://travis-ci.org/hglattergotz/dbcmd)
+
+**Warning:** The commands are constructed containing the password in order to run non-interactive. This can be considered to be insecure.
 
 Operations include:
 
@@ -10,8 +12,6 @@ Operations include:
  * Dump a table to a dump file
  * Dump a database to a dump file
  * Load a table from a dump file
-
-[![Build Status](https://travis-ci.org/hglattergotz/dbcmd.svg)](https://travis-ci.org/hglattergotz/dbcmd)
 
 ## Installation
 
